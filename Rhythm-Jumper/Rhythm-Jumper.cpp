@@ -4,33 +4,17 @@
 #include <SDL_thread.h>
 #include <stdio.h>
 #include <iostream>
+#include "Renderer.h"
+#include "Midi-Interpreter.h"
 #define SCREEN_WIDTH 1920
 #define SCREEN_HEIGHT 1080
 int draw(void* ptr);
 int game(void* ptr);
-int draw(void* ptr)
-{
-	while (true)
-	{
-		std::cout << "This thread functions.";
-		SDL_Delay(rand() % 100);
-	}
-	return 0;
-}
-int game(void* ptr)
-{
-	while (true)
-	{
-		std::cout << "GameThread";
-		SDL_Delay(rand() % 100);
-	}
-	return 0;
-}
 int main(int argc, char* args[]) 
 {
 	SDL_Window* window = NULL;
 	SDL_Surface* screenSurface = NULL;
-	if (SDL_Init(SDL_INIT_EVERYTHING) < 0) 
+	if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
 	{
 		fprintf(stderr, "could not initialize sdl2: %s\n", SDL_GetError());
 		return 1;
@@ -54,5 +38,23 @@ int main(int argc, char* args[])
 	SDL_Delay(2000);
 	SDL_DestroyWindow(window);
 	SDL_Quit();
+	return 0;
+}
+int draw(void* ptr)
+{
+	while (true)
+	{
+		std::cout << "This thread functions.";
+		SDL_Delay(rand() % 100);
+	}
+	return 0;
+}
+int game(void* ptr)
+{
+	while (true)
+	{
+		std::cout << "GameThread";
+		SDL_Delay(rand() % 100);
+	}
 	return 0;
 }
