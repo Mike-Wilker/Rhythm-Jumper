@@ -1,4 +1,5 @@
 ﻿  Rhythm-Jumper.cpp
 c:\users\michael\source\repos\rhythm-jumper\rhythm-jumper\midi-interpreter.h(15): warning C4091: 'static ': ignored on left of 'MidiInterpreter' when no variable is declared
 c:\users\michael\source\repos\rhythm-jumper\rhythm-jumper\rhythm-jumper.cpp(15): warning C4129: 'p': unrecognized character escape sequence
+c:\users\michael\source\repos\rhythm-jumper\rhythm-jumper\rhythm-jumper.cpp(34): warning C4018: '<': signed/unsigned mismatch
   Rhythm-Jumper.vcxproj -> C:\Users\Michael\source\repos\Rhythm-Jumper\Rhythm-Jumper\Debug\Rhythm-Jumper.exe

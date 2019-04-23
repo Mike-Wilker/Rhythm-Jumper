@@ -6,8 +6,10 @@ constexpr int SCREEN_WIDTH = 1920;
 constexpr int SCREEN_HEIGHT = 1080;
 class Renderer
 {
-public:
+private:
 	SDL_Window* window = nullptr;
+	SDL_Renderer* renderer = nullptr;
+public:
 	Renderer()
 	{
 		if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
@@ -15,24 +17,20 @@ public:
 			fprintf(stderr, "could not initialize sdl2: %s\n", SDL_GetError());
 			return;
 		}
-		window = SDL_CreateWindow(
-			"Rhythm-Jumper",
-			SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
-			SCREEN_WIDTH, SCREEN_HEIGHT,
-			SDL_WINDOW_SHOWN
-		);
+		window = SDL_CreateWindow("Rhythm-Jumper", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 		if (window == NULL)
 		{
 			fprintf(stderr, "could not create window: %s\n", SDL_GetError());
 			return;
 		}
+		renderer = SDL_CreateRenderer(window, -1, NULL);
 	}
-	void renderAll(std::vector<GameObject> pipeline)
+	void renderAll(std::vector<GameObject*> pipeline)
 	{
 		SDL_FillRect(SDL_GetWindowSurface(window), NULL, SDL_MapRGB(SDL_GetWindowSurface(window)->format, 0x00, 0x00, 0x00));
-		for (Renderable renderable : pipeline)
+		for (Renderable* renderable : pipeline)
 		{
-			renderable.render(SDL_GetWindowSurface(window));
+			renderable->render(SDL_GetWindowSurface(window), renderer);
 		}
 		SDL_UpdateWindowSurface(window);
 	}

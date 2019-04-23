@@ -7,10 +7,7 @@ public:
 	{
 		
 	}
-	void update()
-	{
-
-	}
+	virtual void update() = 0;
 	~GameObject()
 	{
 
