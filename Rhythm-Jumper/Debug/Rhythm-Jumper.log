@@ -1,3 +1,4 @@
 ﻿  Rhythm-Jumper.cpp
-  Rhythm-Jumper.vcxproj -> C:\Users\mwilker\source\repos\Mike-Wilker\Rhythm-Jumper\Rhythm-Jumper\Debug\Rhythm-Jumper.exe
-  Rhythm-Jumper.vcxproj -> C:\Users\mwilker\source\repos\Mike-Wilker\Rhythm-Jumper\Rhythm-Jumper\Debug\Rhythm-Jumper.pdb (Full PDB)
+c:\users\michael\source\repos\rhythm-jumper\rhythm-jumper\midi-interpreter.h(15): warning C4091: 'static ': ignored on left of 'MidiInterpreter' when no variable is declared
+c:\users\michael\source\repos\rhythm-jumper\rhythm-jumper\rhythm-jumper.cpp(15): warning C4129: 'p': unrecognized character escape sequence
+  Rhythm-Jumper.vcxproj -> C:\Users\Michael\source\repos\Rhythm-Jumper\Rhythm-Jumper\Debug\Rhythm-Jumper.exe

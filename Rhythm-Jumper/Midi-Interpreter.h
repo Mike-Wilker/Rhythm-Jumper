@@ -8,5 +8,8 @@ private:
 
 	};
 public:
-	static MidiData* InterpretMidi(std::string fileName);
+	static MidiData* InterpretMidi(std::string fileName)
+	{
+
+	}
 };

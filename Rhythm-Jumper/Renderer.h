@@ -1,24 +1,44 @@
 #pragma once
 #include <vector>
+#include "Renderable.h"
+#include "GameObject.h"
+constexpr int SCREEN_WIDTH = 1920;
+constexpr int SCREEN_HEIGHT = 1080;
 class Renderer
 {
-	class Renderable
+public:
+	SDL_Window* window = nullptr;
+	Renderer()
 	{
-		SDL_Surface* sprite = nullptr;
-		SDL_Rect* location = nullptr;
-		Renderable(std::string fileName, int x, int y, int w, int h)
+		if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
 		{
-			sprite = SDL_LoadBMP(fileName.c_str());
-			location->x = x;
-			location->y = y;
-			location->w = h;
-			location->h = h;
+			fprintf(stderr, "could not initialize sdl2: %s\n", SDL_GetError());
+			return;
 		}
-		void render(SDL_Surface* window)
+		window = SDL_CreateWindow(
+			"Rhythm-Jumper",
+			SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
+			SCREEN_WIDTH, SCREEN_HEIGHT,
+			SDL_WINDOW_SHOWN
+		);
+		if (window == NULL)
 		{
-			SDL_BlitSurface(window, NULL, sprite, location);
+			fprintf(stderr, "could not create window: %s\n", SDL_GetError());
+			return;
 		}
-	};
-	std::vector<Renderable>* pipeline = new std::vector<Renderable>();
-
+	}
+	void renderAll(std::vector<GameObject> pipeline)
+	{
+		SDL_FillRect(SDL_GetWindowSurface(window), NULL, SDL_MapRGB(SDL_GetWindowSurface(window)->format, 0x00, 0x00, 0x00));
+		for (Renderable renderable : pipeline)
+		{
+			renderable.render(SDL_GetWindowSurface(window));
+		}
+		SDL_UpdateWindowSurface(window);
+	}
+	~Renderer()
+	{
+		SDL_DestroyWindow(window);
+		SDL_Quit();
+	}
 };
