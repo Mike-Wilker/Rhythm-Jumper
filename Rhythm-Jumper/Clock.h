@@ -8,7 +8,7 @@ public:
 	{
 		lastTime = SDL_GetTicks();
 	}
-	int getTimeAllotted()
+	int getTimePassed()
 	{
 		return (lastTime = SDL_GetTicks()) - lastTime;
 	}

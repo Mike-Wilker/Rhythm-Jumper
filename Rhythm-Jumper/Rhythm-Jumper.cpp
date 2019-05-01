@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <SDL.h>
 #include <SDL_thread.h>
+#include "Clock.h"
 #include <stdio.h>
 #include <iostream>
 #include "Renderer.h"
@@ -17,7 +18,6 @@ Renderer* renderer = nullptr;
 KeyHandler* keyHandler = nullptr;
 int main(int argc, char* args[])
 {
-	
 	renderer = new Renderer();
 	keyHandler = new KeyHandler();
 	player = new Player(renderer->getRenderer(), "resources//placeholder.bmp", 0, 700, 100, 100);
@@ -30,35 +30,37 @@ int main(int argc, char* args[])
 }
 int initializePlayerThread(void* ptr)
 {
+	Clock* playerThreadClock = new Clock();
 	while (true)
 	{
-		player->update(barriers, SDL_GetTicks());
+		player->update(barriers, playerThreadClock->getTimePassed());
 	}
-}
-int initializeDrawThread(void* ptr)
-{
-	while (true)
-	{
-		renderer->renderAll(barriers, player);
-	}
-	return 0;
-}
-int initializeGameThread(void* ptr)
-{
-	while (true)
-	{
-		for (int x = 0; x < barriers.size(); x++)
-		{
-			barriers.at(x)->update(SDL_GetTicks());
-		}
-	}
-	return 0;
 }
 int initializeInputThread(void* ptr)
 {
 	while (true)
 	{
 		keyHandler->pollKeys();
+	}
+	return 0;
+}
+int initializeGameThread(void* ptr)
+{
+	Clock* gameThreadClock = new Clock();
+	while (true)
+	{
+		for (int x = 0; x < barriers.size(); x++)
+		{
+			barriers.at(x)->update(gameThreadClock->getTimePassed());
+		}
+	}
+	return 0;
+}
+int initializeDrawThread(void* ptr)
+{
+	while (true)
+	{
+		renderer->renderAll(barriers, player);
 	}
 	return 0;
 }
