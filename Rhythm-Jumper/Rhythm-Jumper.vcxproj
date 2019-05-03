@@ -152,6 +152,7 @@
     <ClInclude Include="Keyhandler.h" />
     <ClInclude Include="Midi-Interpreter.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Renderable.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="stdafx.h" />

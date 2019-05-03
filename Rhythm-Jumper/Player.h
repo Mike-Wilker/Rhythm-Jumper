@@ -8,22 +8,25 @@ constexpr double HEALTH_REGEN = 50.0;
 class Player : public GameObject
 {
 private:
+	const char spriteFileName[27] = "resources//placeholder.bmp";
 	static SDL_Texture* sprite;
-	float health;
+	double health;
+	KeyHandler* keyHandler;
 public:
-	Player(SDL_Renderer* renderer, std::string fileName, int x, int y, int w, int h) : GameObject(renderer, fileName, x, y, w, h)
+	Player(SDL_Renderer* renderer, int x, int y, int w, int h) : GameObject(renderer, x, y, w, h)
 	{
 		health = 100.0;
 		if (sprite == nullptr)
 		{
-			SDL_Surface* image = SDL_LoadBMP(fileName.c_str());
+			SDL_Surface* image = SDL_LoadBMP(spriteFileName);
 			sprite = SDL_CreateTextureFromSurface(renderer, image);
 			SDL_FreeSurface(image);
 		}
+		keyHandler = new KeyHandler();
 	}
 	void update(int ticks) override
 	{
-
+		
 	}
 	void update(std::vector<Barrier*> barriers, int ticks)
 	{
@@ -32,8 +35,8 @@ public:
 		{
 			if (checkCollision(barrier))
 			{
-				health -= BARRIER_DAMAGE;
 				barrier->hit();
+				health -= BARRIER_DAMAGE;
 			}
 		}
 	}
@@ -43,31 +46,27 @@ public:
 	}
 	void handleInput()
 	{
-		SDL_Event event;
-		while (SDL_PollEvent(&event))
+		for (char key : keyHandler->getPressedKeys())
 		{
-			switch (event.type)
+			switch (key)
 			{
-			case SDL_KEYDOWN:
-				if (event.key.keysym.sym == SDLK_SPACE)
-				{
-					std::cout << "yes";
-				}
-				break;
-			case SDL_KEYUP:
-				if (event.key.keysym.sym == SDLK_SPACE)
-				{
+			case ' ':
 
-				}
 				break;
-			default:
+			case 'w':
+				break;
+			case 's':
+				break;
+			case 'a':
+				break;
+			case 'd':
 				break;
 			}
 		}
 	}
 	~Player()
 	{
-
+		SDL_DestroyTexture(sprite);
 	}
 };
 SDL_Texture* Player::sprite;

@@ -1,5 +1,6 @@
 #pragma once
 #include <SDL.h>
+#include <iostream>
 class Clock
 {
 	int lastTime;
@@ -8,9 +9,15 @@ public:
 	{
 		lastTime = SDL_GetTicks();
 	}
+	int getTimePassedNoReset()
+	{
+		return SDL_GetTicks() - lastTime;
+	}
 	int getTimePassed()
 	{
-		return (lastTime = SDL_GetTicks()) - lastTime;
+		int timeElapsed = SDL_GetTicks() - lastTime;
+		lastTime = SDL_GetTicks();
+		return timeElapsed;
 	}
 	~Clock()
 	{
