@@ -149,7 +149,10 @@
     <ClInclude Include="Clock.h" />
     <ClInclude Include="Fence.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Header.h" />
     <ClInclude Include="Keyhandler.h" />
+    <ClInclude Include="MidiEvent.h" />
+    <ClInclude Include="MidiFile.h" />
     <ClInclude Include="MidiInterpreter.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Rectangle.h" />
