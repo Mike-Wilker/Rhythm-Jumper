@@ -1,8 +1,6 @@
 ﻿  Rhythm-Jumper.cpp
-c:\users\michael\source\repos\rhythm-jumper\rhythm-jumper\rectangle.h(32): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-c:\users\michael\source\repos\rhythm-jumper\rhythm-jumper\rectangle.h(34): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-c:\users\michael\source\repos\rhythm-jumper\rhythm-jumper\midi-interpreter.h(15): warning C4091: 'static ': ignored on left of 'MidiInterpreter' when no variable is declared
-c:\users\michael\source\repos\rhythm-jumper\rhythm-jumper\rhythm-jumper.cpp(63): warning C4018: '<': signed/unsigned mismatch
-c:\users\michael\source\repos\rhythm-jumper\rhythm-jumper\rhythm-jumper.cpp(84): warning C4244: 'argument': conversion from 'double' to 'Uint32', possible loss of data
-c:\users\michael\source\repos\rhythm-jumper\rhythm-jumper\gameobject.h(19): warning C4715: 'GameObject::checkCollision': not all control paths return a value
-  Rhythm-Jumper.vcxproj -> C:\Users\Michael\source\repos\Rhythm-Jumper\Rhythm-Jumper\Debug\Rhythm-Jumper.exe
+c:\users\michael\source\repos\rhythm-jumper\rhythm-jumper\rectangle.h(24): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+c:\users\michael\source\repos\rhythm-jumper\rhythm-jumper\rectangle.h(30): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+c:\users\michael\source\repos\rhythm-jumper\rhythm-jumper\rhythm-jumper.cpp(83): warning C4244: 'argument': conversion from 'double' to 'Uint32', possible loss of data
+Rhythm-Jumper.obj : error LNK2019: unresolved external symbol __CrtDbgReport referenced in function "void * __cdecl std::_Allocate_manually_vector_aligned<struct std::_Default_allocate_traits>(unsigned int)" (??$_Allocate_manually_vector_aligned@U_Default_allocate_traits@std@@@std@@YAPAXI@Z)
+C:\Users\Michael\source\repos\Rhythm-Jumper\Rhythm-Jumper\Debug\Rhythm-Jumper.exe : fatal error LNK1120: 1 unresolved externals

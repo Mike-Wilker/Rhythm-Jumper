@@ -1,6 +1,4 @@
 #pragma once
-#include <SDL.h>
-#include <iostream>
 class Clock
 {
 	int lastTime;

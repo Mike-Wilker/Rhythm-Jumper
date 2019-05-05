@@ -1,38 +1,45 @@
 #pragma once
-#include "SDL_rect.h"
-class Rectangle : protected SDL_Rect
+#include <SDL.h>
+class Rectangle : private SDL_Rect
 {
-public:
+private:
 	double xOffset;
 	double yOffset;
-	Rectangle()
+public:
+	Rectangle() : SDL_Rect()
 	{
 		this->xOffset = 0.0;
 		this->yOffset = 0.0;
 	}
-	Rectangle(int x, int y, int w, int h)
+	Rectangle(int x, int y, int w, int h) : Rectangle()
 	{
-		this->xOffset = 0.0;
-		this->yOffset = 0.0;
 		this->x = x;
 		this->y = y;
 		this->w = w;
 		this->h = h;
 	}
-	void offsetX(int offset)
+	void offsetX(double offset)
 	{
-		xOffset += offset;
+		this->xOffset += offset;
+		this->x += (int) round(xOffset);
+		this->xOffset -= round(xOffset);
 	}
-	void offsetY(int offset)
+	void offsetY(double offset)
 	{
-		yOffset += offset;
+		this->yOffset += offset;
+		this->y += (int) round(yOffset);
+		this->yOffset -= round(yOffset);
+	}
+	int getX()
+	{
+		return this->x;
+	}
+	int getY()
+	{
+		return this->y;
 	}
 	const SDL_Rect* getSDL_Rect()
 	{
-		this->x += round(xOffset);
-		xOffset -= round(xOffset);
-		this->y += round(yOffset);
-		yOffset -= round(yOffset);
 		return (SDL_Rect*)this;
 	}
 	bool checkCollision(Rectangle* other)

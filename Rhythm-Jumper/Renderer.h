@@ -1,5 +1,5 @@
 #pragma once
-#include <vector>
+#include <list>
 #include "Renderable.h"
 #include "Barrier.h"
 constexpr int SCREEN_WIDTH = 1920;
@@ -30,14 +30,20 @@ public:
 			return;
 		}
 	}
-	void renderAll(std::vector<Barrier*> barriers, Renderable* player)
+	void renderAll(std::list<Barrier*> barriers, Renderable* player)
 	{
 		SDL_RenderClear(renderer);
 		for (Renderable* renderable : barriers)
 		{
-			renderable->render(SDL_GetWindowSurface(window), renderer);
+			if (renderable != nullptr)
+			{
+				renderable->render(SDL_GetWindowSurface(window), renderer);
+			}
 		}
-		player->render(SDL_GetWindowSurface(window), renderer);
+		if (player != nullptr)
+		{
+			player->render(SDL_GetWindowSurface(window), renderer);
+		}
 		SDL_RenderPresent(renderer);
 	}
 	SDL_Window* getWindow()

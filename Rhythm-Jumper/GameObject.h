@@ -7,15 +7,12 @@ protected:
 public:
 	GameObject(SDL_Renderer* renderer, int x, int y, int w, int h) : Renderable(renderer, x, y, w, h)
 	{
-		deletable = true;
+		deletable = false;
 	}
 	virtual void update(int ticks) = 0;
 	bool checkCollision(GameObject* other)
 	{
-		if (!deletable)
-		{
-			return this->location->checkCollision(other->location);
-		}
+		return (!deletable && this->location->checkCollision(other->location));
 	}
 	bool isDeletable()
 	{

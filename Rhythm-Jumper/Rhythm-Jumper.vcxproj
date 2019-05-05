@@ -150,7 +150,7 @@
     <ClInclude Include="Fence.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Keyhandler.h" />
-    <ClInclude Include="Midi-Interpreter.h" />
+    <ClInclude Include="MidiInterpreter.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Renderable.h" />
