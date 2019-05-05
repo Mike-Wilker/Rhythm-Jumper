@@ -63,6 +63,15 @@
     <ClInclude Include="MidiEvent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MidiEventList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MidiMssg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MidiOptions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

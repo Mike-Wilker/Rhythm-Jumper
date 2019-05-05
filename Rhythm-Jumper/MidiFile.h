@@ -1,7 +1,7 @@
 #pragma once
 #ifndef _MIDIFILE_H_INCLUDED
 #define _MIDIFILE_H_INCLUDED
-#include "MidiEventList.h"
+#include "MidiEvent.h"
 #include <vector>
 #include <string>
 #include <istream>
@@ -44,8 +44,8 @@ namespace smf
 		bool writeBinascWithComments(const std::string& filename);
 		bool writeBinascWithComments(std::ostream& out);
 		bool status(void) const;
-		const MidiEventList& operator[] (int aTrack) const;
-		MidiEventList& operator[] (int aTrack);
+		const MidiEvent& operator[] (int aTrack) const;
+		MidiEvent& operator[] (int aTrack);
 		int getTrackCount(void) const;
 		int getNumTracks(void) const;
 		int size(void) const;

@@ -152,8 +152,11 @@
     <ClInclude Include="Header.h" />
     <ClInclude Include="Keyhandler.h" />
     <ClInclude Include="MidiEvent.h" />
+    <ClInclude Include="MidiEventList.h" />
     <ClInclude Include="MidiFile.h" />
     <ClInclude Include="MidiInterpreter.h" />
+    <ClInclude Include="MidiMssg.h" />
+    <ClInclude Include="MidiOptions.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Renderable.h" />
