@@ -32,6 +32,7 @@ public:
 	}
 	void renderAll(std::list<Barrier*> barriers, Renderable* player, std::list<HudElement*> hudElements)
 	{
+		SDL_SetRenderDrawColor(renderer, 0x11, 0x11, 0x11, 0x11);
 		SDL_RenderClear(renderer);
 		for (Renderable* renderable : barriers)
 		{
