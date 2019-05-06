@@ -1,5 +1,8 @@
 #pragma once
+
 /*
+#include "Barrier.h"
+#include <string>
 class MidiInterpreter
 {
 private:
@@ -29,5 +32,4 @@ public:
 	{
 
 	}
-	
 };*/
