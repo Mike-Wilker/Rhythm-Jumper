@@ -145,11 +145,13 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bar.h" />
     <ClInclude Include="Barrier.h" />
     <ClInclude Include="Clock.h" />
     <ClInclude Include="Fence.h" />
     <ClInclude Include="GameObject.h" />
-    <ClInclude Include="Header.h" />
+    <ClInclude Include="HealthBar.h" />
+    <ClInclude Include="HudElement.h" />
     <ClInclude Include="Keyhandler.h" />
     <ClInclude Include="MidiEvent.h" />
     <ClInclude Include="MidiEventList.h" />

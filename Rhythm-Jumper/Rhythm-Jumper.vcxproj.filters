@@ -54,22 +54,13 @@
     <ClInclude Include="Rectangle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Header.h">
+    <ClInclude Include="HealthBar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MidiFile.h">
+    <ClInclude Include="HudElement.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MidiEvent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MidiEventList.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MidiMssg.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MidiOptions.h">
+    <ClInclude Include="Bar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
