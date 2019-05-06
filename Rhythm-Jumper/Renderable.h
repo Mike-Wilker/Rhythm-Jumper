@@ -14,6 +14,10 @@ public:
 		SDL_RenderCopy(renderer, getSprite(), NULL, location->getSDL_Rect());
 	}
 	virtual SDL_Texture* getSprite() = 0;
+	Rectangle* getLocation()
+	{
+		return location;
+	}
 	~Renderable()
 	{
 		delete location;

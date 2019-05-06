@@ -30,7 +30,7 @@ public:
 			return;
 		}
 	}
-	void renderAll(std::list<Barrier*> barriers, Renderable* player)
+	void renderAll(std::list<Barrier*> barriers, Renderable* player, std::list<HudElement*> hudElements)
 	{
 		SDL_RenderClear(renderer);
 		for (Renderable* renderable : barriers)
@@ -43,6 +43,10 @@ public:
 		if (player != nullptr)
 		{
 			player->render(SDL_GetWindowSurface(window), renderer);
+		}
+		for (HudElement* hudElement : hudElements)
+		{
+			hudElement->render(renderer);
 		}
 		SDL_RenderPresent(renderer);
 	}

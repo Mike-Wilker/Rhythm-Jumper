@@ -1,5 +1,4 @@
 #pragma once
-#include "Renderable.h"
 class GameObject : public Renderable
 {
 protected:
@@ -10,11 +9,11 @@ public:
 		deletable = false;
 	}
 	virtual void update(int ticks) = 0;
-	bool checkCollision(GameObject* other)
+	const bool checkCollision(GameObject* other)
 	{
-		return (!deletable && this->location->checkCollision(other->location));
+		return (!other->isDeletable() && this->location->checkCollision(other->location));
 	}
-	bool isDeletable()
+	const bool isDeletable()
 	{
 		return deletable;
 	}

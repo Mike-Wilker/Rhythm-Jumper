@@ -30,15 +30,23 @@ public:
 		this->y += (int) round(yOffset);
 		this->yOffset -= round(yOffset);
 	}
-	int getX()
+	const int getX()
 	{
 		return this->x;
 	}
-	int getY()
+	const int getY()
 	{
 		return this->y;
 	}
-	const SDL_Rect* getSDL_Rect()
+	const int getW()
+	{
+		return this->w;
+	}
+	const int getH()
+	{
+		return this->h;
+	}
+	SDL_Rect* getSDL_Rect()
 	{
 		return (SDL_Rect*)this;
 	}
